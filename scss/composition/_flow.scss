@@ -1,33 +1,33 @@
 @import '../config';
 
 .flow {
-    --column-gap: #{$default-column-gap};
+    --flow-gap: #{$default-column-gap};
     --breakpoint: #{$column-breakpoint};
     --min-column-width: #{$content-width / $column-count / 1};
     display: flex;
     flex-wrap: wrap;
-    margin-top: calc(-1 * var(--column-gap));
-    margin-left: calc(-1 * var(--column-gap));
+    margin-top: calc(-1 * var(--flow-gap));
+    margin-left: calc(-1 * var(--flow-gap));
 
     * + & {
         margin-top: 0;
     }
 
     > * {
-        margin-top: var(--column-gap);
-        margin-left: var(--column-gap);
+        margin-top: var(--flow-gap);
+        margin-left: var(--flow-gap);
         flex: 1 1 0;
         min-width: var(--min-column-width);
 
         @for $i from 1 through $column-count {
             &.is-#{$i} {
                 flex: none;
-                width: calc(#{$i / $column-count * 100%} - var(--column-gap));
-                min-width: calc(var(--min-column-width) * #{$i} - var(--column-gap));
+                width: calc(#{$i / $column-count * 100%} - var(--flow-gap));
+                min-width: calc(var(--min-column-width) * #{$i} - var(--flow-gap));
             }
 
             &.is-offset-#{$i} {
-                margin-left: calc(#{$i / $column-count * 100%} + var(--column-gap));
+                margin-left: calc(#{$i / $column-count * 100%} + var(--flow-gap));
             }
         }
     }

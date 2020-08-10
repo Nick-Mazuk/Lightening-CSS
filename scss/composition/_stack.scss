@@ -17,14 +17,14 @@
     }
 
     > * {
-        --column-grow: 1;
+        --stack-item-grow: 1;
         @for $i from 1 through $column-count {
             &.is-#{$i} {
-                --column-grow: #{$i / $column-count};
+                --stack-item-grow: #{$i / $column-count};
             }
         }
 
-        flex-grow: var(--column-grow);
+        flex-grow: var(--stack-item-grow);
         flex-shrink: 0;
         max-width: calc(100% - var(--stack-gap));
         flex-basis: calc((var(--breakpoint) - 100%) * 999);

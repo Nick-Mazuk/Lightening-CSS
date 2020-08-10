@@ -1,22 +1,22 @@
 @import '../config';
 
 .columns {
-    --flow-gap: #{$default-column-gap};
-    --flow-row-count: 12;
-    --flow-item-width: calc(#{$content-width} / (var(--flow-row-count)) - var(--flow-gap));
+    --column-gap: #{$default-column-gap};
+    --column-row-count: 12;
+    --column-item-width: calc(#{$content-width} / (var(--column-row-count)) - var(--column-gap));
     display: grid;
-    gap: var(--flow-gap);
-    grid-template-columns: repeat(auto-fit, minmax(var(--flow-item-width), 1fr));
+    gap: var(--column-gap);
+    grid-template-columns: repeat(auto-fit, minmax(var(--column-item-width), 1fr));
     max-width: 100%;
 
     * + & {
-        margin-top: var(--flow-gap);
+        margin-top: var(--column-gap);
     }
 
     & > * {
-        --flow-item-col-span: 2;
+        --column-item-col-span: 2;
         margin: 0;
-        grid-column-start: span var(--flow-item-col-span);
+        grid-column-start: span var(--column-item-col-span);
         max-width: 100%;
     }
 }
