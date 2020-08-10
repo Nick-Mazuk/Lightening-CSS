@@ -22,10 +22,6 @@
             &.is-#{$i} {
                 --column-grow: #{$i / $column-count};
             }
-
-            // &.is-offset-#{$i} {
-            //     margin-left: calc(#{$i / $column-count * 100%} + var(--column-gap));
-            // }
         }
 
         flex-grow: var(--column-grow);
