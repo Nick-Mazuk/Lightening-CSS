@@ -5,11 +5,12 @@
 @import 'composition/flow';
 @import 'composition/section';
 @import 'composition/spacer';
+@import 'composition/stack';
 
 // Utilities
 
 @import 'utilities/alignment';
-// @import 'utilities/animation';
+@import 'utilities/animation';
 @import 'utilities/aspect-ratio';
 @import 'utilities/border';
 @import 'utilities/breakpoints';

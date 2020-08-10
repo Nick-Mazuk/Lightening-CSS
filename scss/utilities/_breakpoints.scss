@@ -1,4 +1,4 @@
-@import 'config';
+@import '../config';
 
 @each $name, $breakpoint in $breakpoints {
     .has-breakpoint-#{$name} {

@@ -1,4 +1,4 @@
-@import 'config';
+@import '../config';
 
 @each $name, $color in $colors {
     .has-underline-#{$name} {

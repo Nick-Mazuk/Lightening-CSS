@@ -1,4 +1,4 @@
-@import 'config';
+@import '../config';
 
 @for $i from 1 through 6 {
     $header-line-height: ($i - 1) / 10 + 1;
