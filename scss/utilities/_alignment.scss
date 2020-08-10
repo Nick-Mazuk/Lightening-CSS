@@ -1,0 +1,24 @@
+.is-centered {
+    display: flex;
+    justify-content: center;
+}
+
+.is-vtop {
+    display: flex;
+    align-items: flex-start;
+}
+
+.is-vcentered {
+    display: flex;
+    align-items: center;
+}
+
+.is-vbottom {
+    display: flex;
+    align-items: flex-end;
+}
+
+.is-vbaseline {
+    display: flex;
+    align-items: baseline;
+}

@@ -1,0 +1,10 @@
+@import 'config';
+
+@each $name, $color in $colors {
+    .is-#{$name} {
+        --color-background: #{$color};
+        --color-text: #{getTextColor($color)};
+        background-color: var(--color-background);
+        color: var(--color-text);
+    }
+}

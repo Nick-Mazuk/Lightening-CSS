@@ -1,0 +1,23 @@
+@import 'config';
+
+.box {
+    --box-padding: #{$padding-medium};
+    border-radius: $border-radius;
+    padding: var(--box-padding);
+
+    @each $name, $size in $padding-sizes {
+        &.is-#{$name} {
+            --box-padding: #{$size};
+        }
+    }
+
+    &.is-link {
+        transition: $transition-faster;
+        text-decoration: none !important;
+
+        &:hover {
+            color: getTextColor($link);
+            background: $link;
+        }
+    }
+}

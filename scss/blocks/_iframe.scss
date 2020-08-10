@@ -1,0 +1,18 @@
+@import 'config';
+
+.iframe-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: $border-radius;
+    width: 100%;
+    cursor: pointer;
+
+    iframe {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

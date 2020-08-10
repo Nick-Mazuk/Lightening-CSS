@@ -1,0 +1,55 @@
+@import 'config';
+
+.label {
+    font-weight: $font-weight-bold;
+    font-size: $font-size-6;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+textarea {
+    width: 100%;
+    display: block;
+    border-radius: $border-radius;
+    border: $border;
+    font-weight: normal;
+    padding: 0.25em 0.75em;
+    font-size: $font-size-6;
+
+    .label > & {
+        margin-top: 0.5rem;
+    }
+
+    &:hover {
+        border: $border-minus-color $gray-light;
+    }
+
+    &:focus {
+        border: $border-minus-color $primary;
+    }
+
+    &.is-small {
+        font-size: $font-size-8;
+    }
+
+    form[data-submitted='true'] &:not(:placeholder-shown):invalid,
+    form[data-submitted='true'] &:required:placeholder-shown {
+        color: $error;
+        border-color: $error;
+    }
+}
+
+textarea {
+    min-height: 8rem;
+    line-height: $line-height;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+}
+
+.field {
+    & + .field {
+        margin-top: 0.8rem;
+    }
+}

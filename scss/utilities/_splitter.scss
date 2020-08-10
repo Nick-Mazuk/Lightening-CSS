@@ -1,0 +1,11 @@
+@import 'config';
+
+.splitter {
+    display: flex;
+    justify-content: space-between;
+
+    & > * {
+        flex: 0 0 auto;
+        margin-top: 0;
+    }
+}

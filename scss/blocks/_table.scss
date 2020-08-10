@@ -1,0 +1,16 @@
+@import 'config';
+
+table {
+    border-radius: $border-radius;
+    border-style: hidden;
+    box-shadow: 0 0 0 $border-width $border-color;
+
+    td,
+    th {
+        padding: $padding-xSmall !important;
+    }
+
+    td {
+        border: $border;
+    }
+}

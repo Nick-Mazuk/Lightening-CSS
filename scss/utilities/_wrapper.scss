@@ -1,0 +1,15 @@
+@import 'config';
+
+.wrapper {
+    // can defined --wrapper-width and --wrapper-padding in custom css to change properties
+    --wrapper-padding-calculated: max(
+        calc((100% - var(--wrapper-width, #{$content-width})) / 2),
+        var(--wrapper-padding, #{$content-padding})
+    );
+    padding-left: var(--wrapper-padding-calculated);
+    padding-right: var(--wrapper-padding-calculated);
+
+    &[data-text='true'] {
+        --wrapper-width: #{$text-width};
+    }
+}

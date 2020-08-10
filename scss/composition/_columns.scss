@@ -1,0 +1,43 @@
+@import 'config';
+
+.columns {
+    --column-gap: #{$default-column-gap};
+    --breakpoint: #{$column-breakpoint};
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--column-gap));
+    margin-left: calc(-1 * var(--column-gap));
+
+    * + & {
+        margin-top: 0;
+    }
+
+    &.no-wrap {
+        flex-wrap: nowrap;
+    }
+
+    > * {
+        --column-grow: 1;
+        @for $i from 1 through $column-count {
+            &.is-#{$i} {
+                --column-grow: #{$i / $column-count};
+            }
+
+            // &.is-offset-#{$i} {
+            //     margin-left: calc(#{$i / $column-count * 100%} + var(--column-gap));
+            // }
+        }
+
+        flex-grow: var(--column-grow);
+        flex-shrink: 0;
+        max-width: calc(100% - var(--column-gap));
+        flex-basis: calc((var(--breakpoint) - 100%) * 999);
+        margin-top: var(--column-gap);
+        margin-left: var(--column-gap);
+
+        &.is-narrow {
+            --column-width: 1px;
+            flex-grow: 0;
+        }
+    }
+}

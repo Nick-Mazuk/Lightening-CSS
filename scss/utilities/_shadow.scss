@@ -1,0 +1,6 @@
+@import 'config';
+
+.has-shadow {
+    box-shadow: $box-shadow;
+    border: $border-minus-color $white-ter;
+}

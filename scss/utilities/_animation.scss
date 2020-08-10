@@ -1,0 +1,71 @@
+@import 'config';
+
+.animated {
+    transition-duration: 0s;
+
+    &.is-shown {
+        transition-duration: $animation-speed-normal;
+
+        &.animate-slow {
+            transition-duration: $animation-speed-slow;
+        }
+    }
+
+    &.fade {
+        opacity: 0;
+        transition-property: opacity;
+        will-change: opacity;
+
+        &.is-shown {
+            opacity: 1;
+        }
+    }
+
+    &.slide-up {
+        opacity: 0;
+        transform: translateY($slide-offset);
+        transition-property: transform, opacity;
+        will-change: transform, opacity;
+
+        &.is-shown {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    &.slide-down {
+        opacity: 0;
+        transform: translateY(-1 * $slide-offset);
+        transition-property: transform, opacity;
+        will-change: transform, opacity;
+
+        &.is-shown {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    &.slide-left {
+        opacity: 0;
+        transform: translateX($slide-offset);
+        transition-property: transform, opacity;
+        will-change: transform, opacity;
+
+        &.is-shown {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    &.slide-right {
+        opacity: 0;
+        transform: translateX(-1 * $slide-offset);
+        transition-property: transform, opacity;
+        will-change: transform, opacity;
+
+        &.is-shown {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+}

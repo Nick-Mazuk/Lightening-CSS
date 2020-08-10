@@ -1,0 +1,7 @@
+@import 'config';
+
+@each $name, $breakpoint in $breakpoints {
+    .has-breakpoint-#{$name} {
+        --breakpoint: #{$breakpoint} !important;
+    }
+}

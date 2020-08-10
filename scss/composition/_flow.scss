@@ -1,0 +1,22 @@
+@import 'config';
+
+.flow {
+    --flow-gap: #{$default-column-gap};
+    --flow-row-count: 12;
+    --flow-item-width: calc(#{$content-width} / (var(--flow-row-count)) - var(--flow-gap));
+    display: grid;
+    gap: var(--flow-gap);
+    grid-template-columns: repeat(auto-fit, minmax(var(--flow-item-width), 1fr));
+    max-width: 100%;
+
+    * + & {
+        margin-top: var(--flow-gap);
+    }
+
+    & > * {
+        --flow-item-col-span: 2;
+        margin: 0;
+        grid-column-start: span var(--flow-item-col-span);
+        max-width: 100%;
+    }
+}

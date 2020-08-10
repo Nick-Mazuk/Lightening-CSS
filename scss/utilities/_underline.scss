@@ -1,0 +1,7 @@
+@import 'config';
+
+@each $name, $color in $colors {
+    .has-underline-#{$name} {
+        border-bottom: $underline-thickness solid #{$color};
+    }
+}

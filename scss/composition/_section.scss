@@ -1,0 +1,28 @@
+@import 'config';
+
+.section {
+    --section-padding: #{$section-padding-default};
+
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    margin-top: 0;
+
+    & + & {
+        margin-top: 0;
+    }
+
+    @each $name, $size in $section-padding-sizes {
+        &.is-#{$name} {
+            --section-padding: #{$size};
+        }
+    }
+
+    &.is-fullheight {
+        min-height: 100vh;
+        --section-padding: #{$section-padding-large};
+    }
+
+    main > &:last-child {
+        padding-bottom: $default-gap;
+    }
+}

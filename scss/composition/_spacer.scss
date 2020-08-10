@@ -1,0 +1,19 @@
+@import 'config';
+
+.spacer {
+    --spacer-height: #{$section-padding-default};
+
+    display: block;
+    height: var(--spacer-height);
+    margin-top: 0;
+
+    & + * {
+        margin-top: 0;
+    }
+
+    @each $name, $size in $padding-sizes {
+        &.is-#{$name} {
+            --spacer-height: #{$size};
+        }
+    }
+}

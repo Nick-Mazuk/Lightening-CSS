@@ -1,0 +1,169 @@
+@import 'config';
+
+@for $i from 1 through 6 {
+    $header-line-height: ($i - 1) / 10 + 1;
+    h#{$i} {
+        font-weight: $font-weight-bold-header;
+        font-size: map-get($font-sizes, #{$i});
+        line-height: $header-line-height;
+        font-family: $font-family-heading;
+    }
+
+    .pretitle + h#{$i} {
+        margin-top: $header-line-height - 0.9em;
+    }
+}
+
+.pretitle {
+    font-size: $font-size-6;
+    font-weight: $font-weight-bold;
+}
+
+.subtitle {
+    margin-top: 0;
+}
+
+.half-margin {
+    margin-top: $margin-top / 2;
+}
+
+ul.is-unstyled,
+ol.is-unstyled {
+    list-style: none;
+    li {
+        margin-left: 0;
+    }
+}
+
+.has-text-left {
+    text-align: left;
+}
+
+.has-text-centered {
+    text-align: center;
+}
+
+.has-text-right {
+    text-align: right;
+}
+
+.has-text-justified {
+    text-align: justify;
+}
+
+.has-text-caps {
+    text-transform: uppercase;
+    letter-spacing: 0.25ch;
+}
+
+.no-wrap {
+    white-space: nowrap;
+}
+
+.has-text-balanced {
+    text-wrap: balance;
+
+    &.has-text-centered {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@for $i from 1 through length($font-sizes) {
+    .is-size-#{$i} {
+        font-size: map-get($font-sizes, #{$i});
+    }
+}
+
+//
+// Font weights
+//
+
+.has-font-weight-black {
+    font-weight: black;
+}
+
+.has-font-weight-bold {
+    font-weight: $font-weight-bold;
+}
+
+.has-font-weight-normal {
+    font-weight: normal;
+}
+
+.has-font-weight-light {
+    font-weight: lighter;
+}
+
+//
+// colors
+//
+
+@each $name, $color in $colors {
+    .has-text-#{$name} {
+        color: $color;
+    }
+}
+
+//
+// anchors
+//
+
+a {
+    text-decoration: none;
+    color: $link;
+
+    &.no-color {
+        color: inherit;
+
+        &:hover {
+            color: $link;
+        }
+    }
+
+    &:not(.button) {
+        position: relative;
+        &:not(.no-color):hover {
+            text-decoration: underline;
+        }
+
+        &.is-cta {
+            margin-right: 0.8em;
+            &:after {
+                content: '';
+                display: inline-block;
+                position: absolute;
+                right: -0.8em;
+                bottom: 0.3em;
+                transform: rotate(45deg);
+                height: 0.35em;
+                width: 0.35em;
+                border-width: 0.1em;
+                border-style: solid;
+                border-left: none;
+                border-bottom: none;
+            }
+        }
+        &.is-cta.is-previous {
+            margin-left: 0.8em;
+            margin-right: 0;
+            &:after {
+                content: none;
+            }
+            &:before {
+                content: '';
+                display: inline-block;
+                position: absolute;
+                left: -0.8em;
+                bottom: 0.3em;
+                transform: rotate(-135deg);
+                height: 0.35em;
+                width: 0.35em;
+                border-width: 0.1em;
+                border-style: solid;
+                border-left: none;
+                border-bottom: none;
+            }
+        }
+    }
+}

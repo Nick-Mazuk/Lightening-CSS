@@ -1,0 +1,117 @@
+@import 'config';
+
+nav.navbar {
+    @extend .splitter;
+    @extend .is-vcentered;
+
+    --navbar-gap: #{$default-gap * 2};
+
+    padding-top: $padding-xSmall;
+    padding-bottom: $padding-xSmall;
+
+    > * {
+        margin: 0;
+        a {
+            text-decoration: none !important;
+            color: inherit;
+            & + a {
+                margin-left: var(--navbar-gap);
+            }
+        }
+    }
+
+    > *:first-child {
+        z-index: 29;
+        a {
+            font-weight: bold;
+            font-size: $font-size-5;
+        }
+    }
+
+    > *:not(:first-child) {
+        @extend .is-vcentered;
+
+        a {
+            font-size: $font-size-7;
+            margin-top: 0;
+        }
+
+        .hamburger {
+            --hamburger-color: #{$gray-dark};
+            --hamburger-thickness: 3px;
+            --hamburger-width: #{$default-gap};
+            --hamburger-height: calc(var(--hamburger-width) * 0.8);
+            display: none;
+            cursor: pointer;
+            width: var(--hamburger-width);
+            height: calc(var(--hamburger-height));
+            border-bottom: var(--hamburger-thickness) solid var(--hamburger-color);
+            border-top: var(--hamburger-thickness) solid var(--hamburger-color);
+            position: relative;
+            margin-top: 0;
+
+            &:before {
+                opacity: 0;
+            }
+
+            &:before,
+            &:after {
+                content: '';
+                width: 100%;
+                border-bottom: var(--hamburger-thickness) solid var(--hamburger-color);
+                position: absolute;
+                left: 0;
+                bottom: calc(var(--hamburger-height) / 2 - var(--hamburger-thickness) * 1.5);
+            }
+        }
+
+        &.is-active {
+            @extend .box;
+            @extend .has-shadow;
+            background: $background-light;
+            position: absolute;
+            z-index: 30;
+            display: flex;
+            justify-content: space-between;
+
+            top: calc(#{$default-gap} - var(--box-padding));
+            left: 0;
+
+            width: 100vw;
+
+            * {
+                flex: 0 0 1;
+                margin: 0;
+            }
+
+            a {
+                display: block;
+            }
+
+            .hamburger {
+                display: block;
+                transform: rotate(45deg);
+                border-color: transparent;
+
+                &:after {
+                    transform: rotate(90deg);
+                    opacity: 1;
+                }
+
+                &:before {
+                    opacity: 1;
+                }
+            }
+        }
+
+        @media (max-width: $navbar-breakpoint) {
+            a {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+    }
+}

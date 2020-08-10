@@ -1,0 +1,80 @@
+@import 'config';
+
+a.button,
+button.button {
+    --button-color: var(--color-background, transparent);
+    background-color: var(--button-color);
+    border-radius: $border-radius;
+    padding: 0.5em 1em;
+    border: $border;
+    color: inherit;
+    white-space: nowrap;
+    text-decoration: none;
+
+    &:focus {
+        outline: none !important;
+        box-shadow: $outline-box-shadow;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    @each $name, $color in $colors {
+        &.is-#{$name} {
+            border-color: var(--button-color);
+            color: getTextColor($color);
+
+            &:hover {
+                border-color: lighten($color, 5%);
+                background-color: lighten($color, 5%);
+            }
+        }
+    }
+
+    &[data-variant='outline'] {
+        background-color: transparent;
+        color: inherit;
+
+        &:hover {
+            background-color: transparent;
+        }
+    }
+
+    &.is-cta {
+        padding: 0.6em 1.5em;
+        display: inline-block;
+
+        * + & {
+            margin-top: 1.5em;
+        }
+    }
+
+    &.is-social {
+        padding: 0;
+        margin: 0;
+        height: $padding-large;
+        width: $padding-large;
+        position: relative;
+        transition: $transition-faster;
+        svg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 1em;
+            path {
+                transition: $transition-faster;
+                fill: $gray-dark;
+            }
+        }
+
+        &:hover {
+            background: $link;
+            border-color: $link;
+            svg path {
+                fill: getTextColor($link);
+            }
+        }
+    }
+}
