@@ -1293,6 +1293,7 @@ a:not(.button):not(.no-color):hover {
 
 a:not(.button).is-cta {
   margin-right: 0.8em;
+  white-space: nowrap;
 }
 
 a:not(.button).is-cta:after {
