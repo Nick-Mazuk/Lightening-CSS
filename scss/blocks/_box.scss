@@ -22,7 +22,7 @@
         }
     }
 
-    img.full-width {
+    > img.full-width {
         margin-left: calc(-1 * var(--box-padding));
         width: calc(100% + 2 * var(--box-padding));
         max-width: none;
