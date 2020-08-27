@@ -4,7 +4,8 @@
   "description": "A CSS framework that I can use for my projects inspired by the [CUBE CSS methodology](https://piccalil.li/blog/cube-css/).",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "develop": "webpack --config ./webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,18 @@
   "bugs": {
     "url": "https://github.com/Nick-Mazuk/Lightening-CSS/issues"
   },
-  "homepage": "https://github.com/Nick-Mazuk/Lightening-CSS#readme"
+  "homepage": "https://github.com/Nick-Mazuk/Lightening-CSS#readme",
+  "dependencies": {
+    "autoprefixer": "^9.8.6",
+    "compression-webpack-plugin": "^5.0.1",
+    "css-loader": "^4.2.2",
+    "mini-css-extract-plugin": "^0.10.0",
+    "node-sass": "^4.14.1",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^10.0.1",
+    "webpack": "^4.44.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.12"
+  }
 }

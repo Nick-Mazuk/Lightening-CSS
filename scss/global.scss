@@ -1,11 +1,2 @@
 @import 'config';
 @import 'reset';
-
-main {
-    margin-top: 0;
-}
-
-body *:focus:not(:active) {
-    outline: none !important;
-    box-shadow: $outline-box-shadow;
-}
