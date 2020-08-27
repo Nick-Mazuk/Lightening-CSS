@@ -1,6 +1,6 @@
 {
   "name": "lightening-css",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "A CSS framework that I can use for my projects inspired by the [CUBE CSS methodology](https://piccalil.li/blog/cube-css/).",
   "main": "index.js",
   "scripts": {
