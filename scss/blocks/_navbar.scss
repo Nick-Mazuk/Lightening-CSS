@@ -8,9 +8,10 @@ nav.navbar[role='navigation'] {
     @extend .is-vcentered;
 
     --navbar-gap: #{$default-gap * 2};
-
-    padding-top: $padding-xSmall;
-    padding-bottom: $padding-xSmall;
+    --navbar-padding: #{$padding-xSmall};
+    padding-top: var(--navbar-padding);
+    padding-bottom: var(--navbar-padding);
+    z-index: 28;
 
     > * {
         margin: 0;
@@ -111,7 +112,7 @@ nav.navbar[role='navigation'] {
     // mobile styling
 
     .hamburger {
-        --hamburger-color: #{$gray-dark};
+        --hamburger-color: var(--color-text);
         --hamburger-thickness: 3px;
         --hamburger-width: #{$default-gap / 1.5};
         --hamburger-height: calc(var(--hamburger-width) * 0.8);
@@ -119,8 +120,8 @@ nav.navbar[role='navigation'] {
         cursor: pointer;
         width: var(--hamburger-width);
         height: calc(var(--hamburger-height));
-        border-bottom: var(--hamburger-thickness) solid var(--hamburger-color);
-        border-top: var(--hamburger-thickness) solid var(--hamburger-color);
+        border-bottom: var(--hamburger-thickness) solid var(--hamburger-color, inherit);
+        border-top: var(--hamburger-thickness) solid var(--hamburger-color, inherit);
         position: relative;
         margin-top: 0;
 
@@ -132,7 +133,7 @@ nav.navbar[role='navigation'] {
         &:after {
             content: '';
             width: 100%;
-            border-bottom: var(--hamburger-thickness) solid var(--hamburger-color);
+            border-bottom: var(--hamburger-thickness) solid var(--hamburger-color, inherit);
             position: absolute;
             left: 0;
             bottom: calc(var(--hamburger-height) / 2 - var(--hamburger-thickness) * 1.5);
@@ -143,6 +144,10 @@ nav.navbar[role='navigation'] {
         display: block;
 
         &.is-active {
+            // background: white;
+            // --color-text: #{getTextColor(white)};
+            // color: var(--color-text);
+
             > *:not(:first-child) {
                 display: flex;
             }
@@ -183,6 +188,7 @@ nav.navbar[role='navigation'] {
             flex-direction: column;
 
             left: 0;
+            transform: translateY(var(--navbar-padding));
 
             width: 100vw;
 
