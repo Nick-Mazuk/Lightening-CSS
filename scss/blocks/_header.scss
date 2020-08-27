@@ -8,7 +8,7 @@ header {
             background-color: $background-light;
             z-index: 999;
 
-            &:after {
+            &:before {
                 content: '';
                 height: 100%;
                 width: 100vw;
@@ -21,7 +21,7 @@ header {
                 will-change: opacity;
             }
 
-            &.is-active:after {
+            &.is-active:before {
                 opacity: 1;
             }
 
