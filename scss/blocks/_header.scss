@@ -1,0 +1,40 @@
+@import '../config';
+
+header {
+    @media (min-width: $navbar-breakpoint) {
+        &[data-sticky='true'] {
+            position: sticky;
+            top: 0;
+            background-color: $background-light;
+            z-index: 999;
+
+            &:after {
+                content: '';
+                height: 100%;
+                width: 100vw;
+                box-shadow: $box-shadow;
+                position: absolute;
+                left: 0;
+                top: 0;
+                opacity: 0;
+                transition: opacity $transition-faster-speed;
+                will-change: opacity;
+            }
+
+            &.is-active:after {
+                opacity: 1;
+            }
+
+            .sentinel + & {
+                margin: 0;
+            }
+        }
+    }
+}
+
+.sentinel {
+    margin: 0;
+    height: 1px;
+    width: 100%;
+    background-color: transparent;
+}
