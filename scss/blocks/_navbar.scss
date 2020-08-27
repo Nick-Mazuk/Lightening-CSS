@@ -1,6 +1,9 @@
 @import '../config';
+@import '../utilities/unselectable';
+@import '../utilities/color';
+@import '../blocks/box';
 
-nav.navbar {
+nav.navbar[role='navigation'] {
     @extend .splitter;
     @extend .is-vcentered;
 
@@ -11,18 +14,86 @@ nav.navbar {
 
     > * {
         margin: 0;
-        a {
-            text-decoration: none !important;
-            color: inherit;
-            & + a {
+
+        > div {
+            margin-top: 0;
+            & + div {
                 margin-left: var(--navbar-gap);
+            }
+
+            &[aria-haspopup='true'] {
+                position: relative;
+
+                > a {
+                    position: relative;
+                    padding-right: 2em;
+                    &::after {
+                        --size: 0.65em;
+                        --thickness: calc(var(--size) / 4);
+                        content: '';
+                        display: inline-block;
+                        position: absolute;
+                        right: var(--thickness);
+                        top: 50%;
+                        transform: translateY(-75%) rotate(135deg);
+                        height: var(--size);
+                        width: var(--size);
+                        border-width: var(--thickness);
+                        border-style: solid;
+                        border-left: none;
+                        border-bottom: none;
+                        color: $link;
+                    }
+                }
+
+                div[aria-label='submenu'] {
+                    @extend .has-shadow;
+                    @extend .box;
+                    @extend .is-white;
+                    --box-padding: #{$default-gap / 2};
+                    min-width: 7em;
+                    margin: 0;
+                    display: none;
+                    position: absolute;
+
+                    a {
+                        padding: 0;
+                        font-size: 0.75em;
+                        & + a {
+                            padding-top: 0.5em;
+                        }
+                    }
+
+                    &.is-right {
+                        right: 0;
+                    }
+                }
+
+                &:focus-within,
+                &:hover {
+                    div[aria-label='submenu'] {
+                        display: flex;
+                        flex-direction: column;
+                    }
+                }
+            }
+
+            a {
+                @extend .unselectable;
+                text-decoration: none !important;
+                color: inherit;
+                padding: 0.25em 0;
+
+                &.is-active {
+                    @extend .has-underline-highlight;
+                }
             }
         }
     }
 
     > *:first-child {
         z-index: 29;
-        a {
+        div a {
             font-weight: bold;
             font-size: $font-size-5;
         }
@@ -31,7 +102,7 @@ nav.navbar {
     > *:not(:first-child) {
         @extend .is-vcentered;
 
-        a {
+        div a {
             font-size: $font-size-7;
             margin-top: 0;
         }

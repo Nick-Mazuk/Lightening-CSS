@@ -1,12 +1,15 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
+const RemovePlugin = require('remove-files-webpack-plugin')
+
+const outputPath = __dirname + '/css'
 
 module.exports = {
     mode: 'production',
     entry: './scss/styles.scss',
     output: {
         filename: 'styles.js',
-        path: __dirname + '/css',
+        path: outputPath,
     },
     module: {
         rules: [
@@ -32,6 +35,19 @@ module.exports = {
             filename: '[name].css',
         }),
         new CompressionPlugin(),
+        new RemovePlugin({
+            after: {
+                test: [
+                    {
+                        folder: outputPath,
+                        method: absoluteItemPath => {
+                            return new RegExp(/\.js/).test(absoluteItemPath)
+                        },
+                        recursive: true,
+                    },
+                ],
+            },
+        }),
     ],
     resolve: {
         extensions: ['.scss', '.sass'],
