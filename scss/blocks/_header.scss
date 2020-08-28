@@ -24,11 +24,10 @@ header {
             &.is-active:before {
                 opacity: 1;
             }
-
-            .sentinel + & {
-                margin: 0;
-            }
         }
+    }
+    .sentinel + & {
+        margin: 0;
     }
 }
 
